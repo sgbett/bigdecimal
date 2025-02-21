@@ -3,3 +3,8 @@ if RUBY_ENGINE == 'jruby'
 else
   require 'bigdecimal.so'
 end
+
+# restore support for rails 4.2.x
+def BigDecimal.new(*args, **kwargs)
+  BigDecimal(*args, **kwargs)
+end
